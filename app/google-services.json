@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "856679515547",
+    "project_id": "rideflow-142ee",
+    "storage_bucket": "rideflow-142ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856679515547:android:a25e5f192b04d65f1c0d3e",
+        "android_client_info": {
+          "package_name": "com.electric.rideflow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856679515547-0d6fhqgu7a09i3n5t0i06971cskcj56j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.electric.rideflow",
+            "certificate_hash": "e56a0e0ad8a0c4d02ccbec439c7ecc5648d3ffac"
+          }
+        },
+        {
+          "client_id": "856679515547-d914irvv2qppd6sa9t1c06435vc372om.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw7dwu_3AVU3CnGnigPbryBdHFzXyIz9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856679515547-d914irvv2qppd6sa9t1c06435vc372om.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
