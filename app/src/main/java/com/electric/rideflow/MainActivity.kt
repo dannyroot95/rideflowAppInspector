@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         private const val RC_SIGN_IN = 100
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -65,12 +64,43 @@ class MainActivity : AppCompatActivity() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = task.getResult(Exception::class.java)!!
-                firebaseAuthWithGoogle(account)
+                val email = account.email ?: ""
+
+                // Verificar en Firestore si el correo ya existe
+                checkIfEmailExistsInFirestore(email) { emailExists ->
+                    if (emailExists) {
+                        // Si el correo ya existe, detener el flujo
+                        stopLogin()
+                        Toast.makeText(
+                            this,
+                            "Este correo ya está registrado en Firestore. Usa el método correspondiente para iniciar sesión.",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
+                        // Proceder con la autenticación si el correo no existe
+                        firebaseAuthWithGoogle(account)
+                    }
+                }
             } catch (e: Exception) {
                 stopLogin()
                 Toast.makeText(this, "Error al iniciar sesión con Google", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    // Verificar si el correo ya existe en Firestore
+    private fun checkIfEmailExistsInFirestore(email: String, callback: (Boolean) -> Unit) {
+        val firestore = FirebaseFirestore.getInstance()
+        firestore.collection("users")
+            .whereEqualTo("email", email)
+            .get()
+            .addOnSuccessListener { documents ->
+                callback(!documents.isEmpty) // Si hay documentos, el correo ya existe
+            }
+            .addOnFailureListener { e ->
+                //Toast.makeText(this, "Error al verificar el correo: ${e.message}", Toast.LENGTH_SHORT).show()
+                callback(false)
+            }
     }
 
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
