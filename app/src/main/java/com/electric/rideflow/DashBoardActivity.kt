@@ -268,7 +268,7 @@ class DashBoardActivity : AppCompatActivity(), OnMapReadyCallback {
         val editText = EditText(this)
         editText.inputType = InputType.TYPE_CLASS_TEXT
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Reportar Incidencia")
+        builder.setTitle("Multar Usuario")
         builder.setView(editText)
         builder.setPositiveButton("Guardar") { dialog, _ ->
             val comment = editText.text.toString()

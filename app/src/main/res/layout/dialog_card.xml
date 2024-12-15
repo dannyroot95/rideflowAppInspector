@@ -43,9 +43,9 @@
             android:backgroundTint="#007612"
             android:layout_weight="1"
             android:fontFamily="sans-serif-light"
-            android:layout_width="wrap_content"
+            android:layout_width="5dp"
             android:layout_height="wrap_content"
-            android:text="Ok"/>
+            android:text="Cerrar"/>
 
         <Button
             android:id="@+id/btnNegative"
@@ -54,7 +54,7 @@
             android:fontFamily="sans-serif-light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reportar"
+            android:text="Multar"
             android:backgroundTint="#810101"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
@@ -65,17 +65,29 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/btnNeutral"
+            android:id="@+id/btnCustom"
             android:textSize="11sp"
             android:layout_weight="1"
+            android:backgroundTint="#7F0181"
             android:fontFamily="sans-serif-light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Multar"
-            android:backgroundTint="#013D81"
-            android:layout_marginStart="8dp"/>
+            android:text="Solicitar baja"/>
 
-       
+        <Button
+            android:id="@+id/btnNeutral"
+            android:textSize="11sp"
+            android:paddingStart="8dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:fontFamily="sans-serif-light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver Multas"
+            android:backgroundTint="#013D81"
+            />
+
+
     </LinearLayout>
 
 </LinearLayout>
